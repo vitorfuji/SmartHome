@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Welcome Home,",
+                    "Olá novamente,",
                     style: TextStyle(fontSize: 20, color: Colors.grey[700]),
                   ),
                   Text(
