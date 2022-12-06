@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import 'package:flutter/src/widgets/container.dart';
@@ -12,6 +13,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final user = FirebaseAuth.instance.currentUser!;
+
   //padding constants
   final double horizontalPadding = 40;
   final double verticalPadding = 25;
@@ -56,6 +59,14 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.grey[800],
                   ),
 
+                  MaterialButton(
+                    onPressed: () {
+                      FirebaseAuth.instance.signOut();
+                    },
+                    color: Colors.deepPurple[200],
+                    child: Text('Sair'),
+                  ),
+
                   //account icon
                   Icon(
                     Icons.person,
@@ -85,6 +96,11 @@ class _HomePageState extends State<HomePage> {
                     style: GoogleFonts.bebasNeue(
                       fontSize: 72,
                     ),
+                  ),
+                  Text(
+                    // ignore: prefer_interpolation_to_compose_strings
+                    "Email: " + user.email!,
+                    style: TextStyle(fontSize: 15, color: Colors.grey[700]),
                   ),
                 ],
               ),
